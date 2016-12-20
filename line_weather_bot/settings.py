@@ -60,7 +60,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'weather_bot.urls'
+ROOT_URLCONF = 'line_weather_bot.urls'
 
 TEMPLATES = [
     {
@@ -78,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'weather_bot.wsgi.application'
+WSGI_APPLICATION = 'line_weather_bot.wsgi.application'
 
 
 # Database
