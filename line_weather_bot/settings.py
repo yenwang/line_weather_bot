@@ -34,7 +34,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'peaceful-harbor-51552.herokuapp.com',
-    '127.0.0.1'
+    '127.0.0.1',
+    'yenweatherbot.herokuapp.com',
 ]
 
 
