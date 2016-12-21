@@ -31,7 +31,7 @@ def callback(request):
                 if isinstance(event.message, TextMessage):
                     lint_bot_api.reply_message(
                         event.reply_token,
-                        TextSendMessage(text = 'hi')
+                        TextSendMessage(text = event.message.text)
                     )
         return HttpResponse()
     else:
