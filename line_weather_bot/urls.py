@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-
+import line_bot
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^line_bot/', include('line_bot.urls')),
 ]
