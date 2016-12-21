@@ -29,7 +29,7 @@ def callback(request):
         for event in events:
             if isinstance(event, MessageEvent):
                 if isinstance(event.message, TextMessage):
-                    lint_bot_api.reply_message(
+                    line_bot_api.reply_message(
                         event.reply_token,
                         TextSendMessage(text = event.message.text)
                     )
