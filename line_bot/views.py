@@ -14,7 +14,16 @@ from xml.etree.ElementTree import parse
 
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
-
+def request_handler(area):
+    url = "https://opendata.cwb.gov.tw/opendataapi?dataid=F-C0032-001&authorizationkey={WEATHER_KEY}".format(WEATHER_KEY = settings.WEATHER_KEY)
+    response = urlopen(url)
+    tree = ET.parse(response)
+    root = tree.getroot()
+    for element in root.iterfind(".//urn:cwb:gov:tw:cwbcommon:0.1location")
+        if area in element[0].text
+            output = element.find(".//urn:cwb:gov:tw:cwbcommon:0.1parameterName")
+            return "Weather of" + element[0].text + ":" + output.text
+    return area + "not found.Please Enter a city of Taiwan to check the weather!"
 @csrf_exempt
 def callback(request):
     if request.method == 'POST':
