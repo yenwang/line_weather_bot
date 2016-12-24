@@ -19,9 +19,10 @@ def request_handler(area):
     response = urlopen(url)
     tree = ET.parse(response)
     root = tree.getroot()
-    for element in root.iterfind(".//urn:cwb:gov:tw:cwbcommon:0.1location"):
+    print area
+    for element in root.iterfind(".//{urn:cwb:gov:tw:cwbcommon:0.1}location"):
         if area in element[0].text:
-            output = element.find(".//urn:cwb:gov:tw:cwbcommon:0.1parameterName")
+            output = element.find(".//{urn:cwb:gov:tw:cwbcommon:0.1}parameterName")
             return "Weather of" + element[0].text + ":" + output.text
     return area + "not found.Please Enter a city of Taiwan to check the weather!"
 @csrf_exempt
