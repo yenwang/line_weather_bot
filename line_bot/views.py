@@ -36,13 +36,14 @@ def callback(request):
         except LineBotApiError:
             return HttpResponseBadRequest()
         taiwan_area = ["基隆", "臺北", "新北", "桃園", "新竹縣", "新竹市", "苗栗", "臺中", "南投", "彰化", "雲林", "嘉義縣", "嘉義市", "臺南", "高雄", "屏東", "台東", "花蓮", "宜蘭", "連江", "澎湖", "金門", "台北", "台中", "台南"]
+        flag = 0
         for event in events:
             if isinstance(event, MessageEvent):
                 if isinstance(event.message, TextMessage):
                     if "天氣" in event.message.text:
-                        reply = request_handler("臺南")
                         for area in taiwan_area:
                             if area in event.message.text:
+                                flag = 1
                                 if area == "台北":
                                     reply = request_handler("臺北")
                                 elif area == "台中":
@@ -51,9 +52,13 @@ def callback(request):
                                     reply = request_handler("臺南")
                                 else:
                                     reply = request_handler(area)
+                        if flag == 0:
+                            reply = request_handler("臺南")
+                    else:
+                        reply = event.message.text
                     line_bot_api.reply_message(
                         event.reply_token,
-                        TextSendMessage(text=event.message.text)
+                        TextSendMessage(text=reply)
                     )
         return HttpResponse()
     else:
