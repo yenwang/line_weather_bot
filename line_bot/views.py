@@ -15,9 +15,9 @@ from xml.etree.ElementTree import parse
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 def request_handler(area):
-    url = "https://opendata.cwb.gov.tw/opendataapi?dataid=F-C0032-001&authorizationkey={WEATHER_KEY}".format(WEATHER_KEY = settings.WEATHER_KEY)
+    url = "http://opendata.cwb.gov.tw/opendataapi?dataid=F-C0032-001&authorizationkey={WEATHER_KEY}".format(WEATHER_KEY = settings.WEATHER_KEY)
     response = urlopen(url)
-    tree = ET.parse(response)
+    tree = parse(response)
     root = tree.getroot()
     for element in root.iterfind(".//{urn:cwb:gov:tw:cwbcommon:0.1}location"):
         if area in element[0].text:
