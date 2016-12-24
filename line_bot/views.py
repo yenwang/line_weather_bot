@@ -19,7 +19,6 @@ def request_handler(area):
     response = urlopen(url)
     tree = ET.parse(response)
     root = tree.getroot()
-    print "%s" % area
     for element in root.iterfind(".//{urn:cwb:gov:tw:cwbcommon:0.1}location"):
         if area in element[0].text:
             output = element.find(".//{urn:cwb:gov:tw:cwbcommon:0.1}parameterName")
