@@ -17,6 +17,7 @@ For i don't want to let others know some secrect values, I put these values on H
 #Useage
 Add your line bot by Connected Bot ID or QR Code  
 My line bot id is @yxh4216r  
+QR Code <img src="http://qr-official.line.me/L/5jfaC62qL2.png">  
 This bot can search the weather for you(Only cities in Taiwan)  
 1.If "天氣" appears in your message, the bot will search the weather in Tainan for you(by default).  
 2.If "天氣" and a city name(eg:"南投") appear simutaneously in your message, the bot will search the weather in the city you enter for you.  
