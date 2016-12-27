@@ -14,7 +14,7 @@ For i don't want to let others know some secrect values, I put these values on H
 2.LINE_CHANNEL_SECRET (check your own key on your line bot)  
 3.SECRET_KEY (check your own key on your settings.py)  
 4.WEATHER_KEY (I use this key to access weather and parse it, you can create your own account on http://opendata.cwb.gov.tw/index and then your will get this key)  
-#Useage
+#Usage
 Add your line bot by Connected Bot ID or QR Code  
 My line bot id is @yxh4216r  
 This bot can search the weather for you(Only cities in Taiwan)  
