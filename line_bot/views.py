@@ -35,7 +35,7 @@ def callback(request):
             return HttpResponseForbidden()
         except LineBotApiError:
             return HttpResponseBadRequest()
-        taiwan_area = ["基隆", "臺北", "新北", "桃園", "新竹縣", "新竹市", "苗栗", "臺中", "南投", "彰化", "雲林", "嘉義縣", "嘉義市", "臺南", "高雄", "屏東", "台東", "花蓮", "宜蘭", "連江", "澎湖", "金門", "台北", "台中", "台南"]
+        taiwan_area = ["基隆", "臺北", "新北", "桃園", "新竹縣", "新竹市", "苗栗", "臺中", "南投", "彰化", "雲林", "嘉義縣", "嘉義市", "臺南", "高雄", "屏東", "台東", "花蓮", "宜蘭", "連江", "澎湖", "金門", "台北", "台中", "台南","臺東"]
         flag = 0
         for event in events:
             if isinstance(event, MessageEvent):
@@ -50,6 +50,8 @@ def callback(request):
                                     reply = request_handler("臺中")
                                 elif area == "台南":
                                     reply = request_handler("臺南")
+                                elif area == "台東":
+                                    reply = request_handler("臺東")
                                 else:
                                     reply = request_handler(area)
                         if flag == 0:
